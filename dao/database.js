@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
 require("./model/userModel.js");
-require("./model/evaluateModel");
+require("./model/goodsModel.js");
+require("./model/applyShop/applyShopModel.js");
 require("./model/service/serviceModel.js");
 require("./model/applyShop/applyShopModel.js");
 
