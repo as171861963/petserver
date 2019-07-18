@@ -10,8 +10,6 @@ router.get('/', async function(req, res, next) {
 
 router.post('/', async function(req, res, next) {
   const goods = req.body;
-  console.log(goods);
-  
   const data = await addGoods(goods);
   res.send(data);
 });
@@ -24,11 +22,8 @@ router.delete('/:_id', async function(req, res, next) {
 
 router.put('/:_id', async function(req, res, next) {
     const _id = req.params._id;
-    const attr = req.body.attr;
-    const newValue = req.body.newValue;
-    console.log(_id,attr,newValue);
-    
-    const data = await updateByAttr({_id, attr, newValue});
+    const newAttr = req.body;
+    const data = await updateByAttr({_id, newAttr});
     res.send(data);
 });
 

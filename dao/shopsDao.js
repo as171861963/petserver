@@ -4,7 +4,7 @@ const addShop = async ({ shops }) => await shopsModel.create(shops);
 
 const deleteShop = async ({ _id }) => await shopsModel.remove({ _id });
 
-const updateById = async ({ _id, attr, v }) => await shopsModel.update({ _id }, { [attr]: v });
+const updateById = async ({ _id, newAttr }) => await shopsModel.update({ _id }, newAttr);
 
 const getShops = async ({ curPage, eachPage }) => {
     let result = {

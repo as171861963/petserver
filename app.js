@@ -11,7 +11,7 @@ var usersRouter = require('./routes/users');
 var evaluatesRouter = require('./routes/evaluates.js');
 var shopsRouter = require('./routes/shops');
 var goodsRouter = require('./routes/goods');
-var serviceRouter = require('./routes/service');
+var serviceRouter = require('./routes/services');
 
 
 var app = express();

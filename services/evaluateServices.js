@@ -6,7 +6,6 @@ const addEvaluate = async (evaluate) => await evaluateDao.addEvaluate(evaluate);
 
 const deleteEvaluate = async (_id) => await evaluateDao.deleteEvaluate(_id);
 
-
 module.exports = {
     getEvaluates, addEvaluate, deleteEvaluate, 
 };

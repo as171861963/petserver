@@ -2,11 +2,6 @@ var express = require('express');
 var router = express.Router();
 const { login, signIn } = require("../services/usersServices.js");
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('hello');
-});
-
 router.get('/login',async function(req, res, next) {
   const user = req.query;
   const data = await login(user);

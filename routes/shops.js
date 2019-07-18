@@ -19,9 +19,8 @@ router.post('/', async function (req, res, next) {
 //修改
 router.put('/:_id', async function (req, res, next) {
     const _id = req.params._id;
-    const attr = req.body.attr;
-    const v = req.body.v;
-    const data = await updateById({ _id, attr, v });
+    const newAttr = req.body;
+    const data = await updateById({ _id,newAttr });
     res.send(data);
 });
 //删除
