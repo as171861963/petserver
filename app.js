@@ -9,6 +9,7 @@ require("./dao/database")
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var evaluatesRouter = require('./routes/evaluates.js');
+var shopsRouter = require('./routes/shops');
 var goodsRouter = require('./routes/goods');
 var serviceRouter = require('./routes/service');
 
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/evaluates', evaluatesRouter);
+app.use('/shops', shopsRouter);
 app.use('/goods', goodsRouter);
 app.use('/service', serviceRouter);
 
