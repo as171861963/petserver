@@ -8,13 +8,10 @@ require("./dao/database")
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-<<<<<<< HEAD
 var shopsRouter = require('./routes/shops');
-=======
 var goodsRouter = require('./routes/goods');
 var serviceRouter = require('./routes/service');
 
->>>>>>> c734d88cedd2cda5848973e5db280c8af24b91f2
 
 var app = express();
 
@@ -30,13 +27,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-<<<<<<< HEAD
 app.use('/shops', shopsRouter);
-=======
 app.use('/goods', goodsRouter);
 app.use('/service', serviceRouter);
 
->>>>>>> c734d88cedd2cda5848973e5db280c8af24b91f2
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
