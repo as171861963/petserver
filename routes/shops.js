@@ -2,6 +2,17 @@ var express = require('express');
 var router = express.Router();
 const { addShop, deleteShop, getShops, updateById } = require("../services/shopsServices.js");
 
+const { uploadFile } = require("../utils/upload");
+
+/* GET users listing. */
+router.post('/fileupload', async function (req, res, next) {
+    const { data } = await uploadFile(req, res, {
+        fileType:"imgs",
+        path: "./public"
+    });
+    res.send(data);
+});
+
 //查找
 router.get('/', async function (req, res, next) {
     const curPage = ~~req.query.curPage;

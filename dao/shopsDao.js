@@ -14,7 +14,7 @@ const getShops = async ({ curPage, eachPage }) => {
     }
     result.total = await shopsModel.countDocuments();
     result.rows = await shopsModel
-        .find()
+        .find().populate("managerId")
         .skip((curPage - 1) * eachPage)
         .limit(eachPage)
         .sort({
