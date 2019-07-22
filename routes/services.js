@@ -3,8 +3,9 @@ var services = require("../services/servicesServices.js");
 var router = express.Router();
 
 //GET类型：查询获取数据
-router.get("/", async function (req, res, next) {
-  const data = await services.getService();
+router.get("/:managerId", async function (req, res, next) {
+  const managerId = req.params.managerId;
+  const data = await services.getServiceByManagerId(managerId);
   res.send(data);
 });
 //PUT类型：修改数据

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { addShop, deleteShop, getShops, updateById } = require("../services/shopsServices.js");
+const { addShop, deleteShop, updateById ,getShopsByManagerId, getUnhandledShop} = require("../services/shopsServices.js");
 
 const { uploadFile } = require("../utils/upload");
 
@@ -14,13 +14,19 @@ router.post('/fileupload', async function (req, res, next) {
 });
 
 //查找
-router.get('/', async function (req, res, next) {
-    const curPage = ~~req.query.curPage;
-    const eachPage = ~~req.query.eachPage;
-    const data = await getShops({ curPage, eachPage });
-    res.send(data);
 
+router.get('/status/unhandled', async function (req, res, next) {
+    const data = await getUnhandledShop();
+    res.send(data);
 });
+
+
+router.get('/:managerId', async function (req, res, next) {
+    const managerId = req.params.managerId;
+    const data = await getShopsByManagerId({ managerId });
+    res.send(data);
+});
+
 //新增
 router.post('/', async function (req, res, next) {
     const shops = req.body;
