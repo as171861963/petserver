@@ -9,10 +9,9 @@ router.get("/:managerId", async function (req, res, next) {
   res.send(data);
 });
 //PUT类型：修改数据
-router.put("/:_id", async function (req, res, next) {
-  const _id = req.params._id;
-  const service = req.body;
-  const data = await services.updateService({ _id }, service);
+router.put("/", async function (req, res, next) {
+  const newService = req.body;
+  const data = await services.updateService(newService);
   res.send(data)
   
 })

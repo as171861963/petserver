@@ -6,7 +6,7 @@ const addService = async (addData) => await servicesDao.addService(addData);
 
 const deleteService = async ({ _id }) => await servicesDao.deleteService({ _id });
 
-const updateService = async ({ _id }, service) => await servicesDao.updateService({ _id }, service);
+const updateService = async (newService) => await servicesDao.updateService(newService);
 
 module.exports = {
     getServiceByManagerId,
