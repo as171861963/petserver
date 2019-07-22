@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { login, signIn } = require("../services/usersServices.js");
+const { login, signIn, getUserManage, updataUserStatus } = require("../services/usersServices.js");
 const jwt = require("jsonwebtoken");
 const { secretKey } = require("../utils/salt");
 
@@ -29,10 +29,20 @@ router.get('/login',async function(req, res, next) {
       success: false,
       message: `fail`
     })
-  }
+}
+
+router.get('/userManage', async function (req, res, next) {
+  const data = await getUserManage(req.query);
+  res.send(data);
 });
 
-router.post('/signIn', async function(req, res, next) {
+router.put('/:_id', async function (req, res, next) {
+  const _id = req.params._id
+  const data = await updataUserStatus(req.body, _id);
+  res.send(data);
+});
+
+router.post('/signIn', async function (req, res, next) {
   const user = req.body;
   const data = await signIn(user);
   res.send(data);
