@@ -12,6 +12,8 @@ var evaluatesRouter = require('./routes/evaluates.js');
 var shopsRouter = require('./routes/shops');
 var goodsRouter = require('./routes/goods');
 var serviceRouter = require('./routes/services');
+var petsRouter = require('./routes/pets');
+var footsRouter = require('./routes/foots');
 
 
 var app = express();
@@ -32,6 +34,8 @@ app.use('/evaluates', evaluatesRouter);
 app.use('/shops', shopsRouter);
 app.use('/goods', goodsRouter);
 app.use('/service', serviceRouter);
+app.use('/pets', petsRouter);
+app.use('/foots', footsRouter);
 
 
 // catch 404 and forward to error handler
