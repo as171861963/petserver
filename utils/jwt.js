@@ -6,7 +6,7 @@ const jwtAuth = expressJwt({
     secret: secretKey,
     credentialsRequired: true // false：不校验
   }).unless({
-    path: ["/users/login", "/users/signIn"]
+    path: ["/users/login", "/users/signIn","/shops/fileupload"]
   });
   
   module.exports = jwtAuth;

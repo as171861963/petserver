@@ -30,6 +30,7 @@ router.get('/login',async function(req, res, next) {
       message: `fail`
     })
 }
+});
 
 router.get('/userManage', async function (req, res, next) {
   const data = await getUserManage(req.query);

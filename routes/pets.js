@@ -21,14 +21,6 @@ router.post("/", async function (req, res, next) {
     }
 })
 
-router.post("/fileupload", async function (req, res, next) {
-    const { data } = await uploadFile(req, res, {
-        fileType: "imgs",
-        path: "./public"
-    });
-    res.send(data);
-})
-
 router.put("/", async function (req, res, next) {
     const data = await petsServices.updatePet(req.body)
     if (data.ok) {
