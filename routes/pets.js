@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var petsServices = require("../services/petsServices.js");
+const { uploadFile } = require("../utils/upload");
 
 router.get("/", async function (req, res, next) {
     const data = await petsServices.getPets(req.query)
@@ -20,6 +21,14 @@ router.post("/", async function (req, res, next) {
     }
 })
 
+router.post("/fileupload", async function (req, res, next) {
+    const { data } = await uploadFile(req, res, {
+        fileType: "imgs",
+        path: "./public"
+    });
+    res.send(data);
+})
+
 router.put("/", async function (req, res, next) {
     const data = await petsServices.updatePet(req.body)
     if (data.ok) {
@@ -37,11 +46,11 @@ router.delete("/", async function (req, res, next) {
     const data = await petsServices.deletePet(req.query)
     if (data.ok) {
         res.send({
-            status: "修改成功"
+            status: "删除成功"
         });
     } else {
         res.send({
-            status: "修改失败"
+            status: "删除失败"
         });
     }
 })

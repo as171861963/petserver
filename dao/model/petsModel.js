@@ -11,6 +11,7 @@ const petsSchema = new mongoose.Schema({
     somatotype: String,
     vaccine: String,
     describe: String,
+    imgs:String,
     managerId: { type: mongoose.Schema.Types.ObjectId, ref: "users" }
 })
 mongoose.model("pets", petsSchema, "pets")

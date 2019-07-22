@@ -1,6 +1,6 @@
 const footsModel = require("mongoose").model("foots")
 
-const getFoots = async data => await footsModel.find({ managerId: data.managerId }).sort({ _id: -1 })
+const getFoots = async data => await footsModel.find({ managerId: data.managerId }).sort({ [data.key]: 1 })
 
 const searchFoot = async data => await footsModel.find(data).sort({ _id: -1 })
 

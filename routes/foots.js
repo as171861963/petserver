@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var footsServices = require("../services/footsServices.js");
+const { uploadFile } = require("../utils/upload");
 
 router.get("/", async function (req, res, next) {
     const data = await footsServices.getFoots(req.query)
@@ -18,6 +19,14 @@ router.post("/", async function (req, res, next) {
             status: "添加失败"
         });
     }
+})
+
+router.post("/fileupload", async function (req, res, next) {
+    const { data } = await uploadFile(req, res, {
+        fileType: "imgs",
+        path: "./public"
+    });
+    res.send(data);
 })
 
 router.put("/", async function (req, res, next) {
