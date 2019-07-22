@@ -2,27 +2,12 @@ const shopsModel = require("mongoose").model("shop");
 
 const addShop = async ({ shops }) => await shopsModel.create(shops);
 
+const getUnhandledShop = async () => await shopsModel.find({ status:"审核中" }).populate("managerId");
+
 const deleteShop = async ({ _id }) => await shopsModel.remove({ _id });
 
 const updateById = async ({ _id, newAttr }) => await shopsModel.update({ _id }, newAttr);
 
-const getShops = async ({ curPage, eachPage }) => {
-    let result = {
-        rows: [],
-        total: 0,
-        maxPage: 0,
-    }
-    result.total = await shopsModel.countDocuments();
-    result.rows = await shopsModel
-        .find().populate("managerId")
-        .skip((curPage - 1) * eachPage)
-        .limit(eachPage)
-        .sort({
-            _id: 1
-        })
-        .exec();
-    result.maxPage = Math.ceil(result.total / eachPage);
-    return result;
-}
+const getShopsByManagerId = async ({ managerId }) => await shopsModel.find({managerId}).populate("managerId");
 
-module.exports = { addShop, deleteShop, getShops, updateById };
+module.exports = { addShop, deleteShop, updateById, getShopsByManagerId, getUnhandledShop};

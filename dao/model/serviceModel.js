@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
 const serviceSchema = new mongoose.Schema({
-    name:String,
-    arrange:String,
-    type:String,
-    sphereAp:String,
-    serveAp:String,
-    cost:String,
-    level:String,
-    price:String,
+    name: String,
+    startTime: String,
+    endTime: String,
+    type: String,
+    brief: String,
+    costTime: String,
+    price: String,
+    imgs:String,
+    managerId:{ type:mongoose.Schema.Types.ObjectId,ref:"users" },
+    shopId:{ type:mongoose.Schema.Types.ObjectId,ref:"shop" },
 });
 mongoose.model("service", serviceSchema, "service");

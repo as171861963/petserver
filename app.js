@@ -31,7 +31,7 @@ app.use('/users', usersRouter);
 app.use('/evaluates', evaluatesRouter);
 app.use('/shops', shopsRouter);
 app.use('/goods', goodsRouter);
-app.use('/service', serviceRouter);
+app.use('/services', serviceRouter);
 
 
 // catch 404 and forward to error handler
