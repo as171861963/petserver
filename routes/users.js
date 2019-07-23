@@ -29,7 +29,8 @@ router.get('/login',async function(req, res, next) {
       success: false,
       message: `fail`
     })
-}});
+}
+});
 
 router.get('/userManage', async function (req, res, next) {
   const data = await getUserManage(req.query);
